@@ -1,0 +1,5 @@
+<Alloy>
+	<NavigationWindow id="index" platform="ios">
+		<Require src="notas" id="notas"/>
+	</NavigationWindow>
+</Alloy>

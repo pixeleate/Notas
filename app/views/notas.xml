@@ -1,0 +1,20 @@
+<Alloy>
+	<Window class="container" title="NotasTitanium" backgroundColor="#fff">
+		<!-- android menu -->
+		<Menu>
+			<MenuItem 
+				onClick = "addNotes" 
+				title = "AddNote" 
+				icon = "Ti.Android.R.drawable.btn_plus"
+				showAsAction = "Ti.Android.SHOW_AS_ACTION_IF_ROOM" />
+		</Menu>
+
+		<!-- rightNavButton for platforms that support them -->
+		<RightNavButton platform="ios">
+			<Button id="addButton" onClick="addNotes" 
+				systemButton="Titanium.UI.iPhone.SystemButton.ADD" />
+		</RightNavButton>
+
+
+	</Window>
+</Alloy>
