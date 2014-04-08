@@ -1,0 +1,9 @@
+"#row": {
+	height: '50dp',
+	backgroundColor: '#fff',
+	focusable: false
+}
+
+"#row[platform=ios]": {
+    selectionStyle:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+}

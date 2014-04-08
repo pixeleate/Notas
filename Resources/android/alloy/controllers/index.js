@@ -9,17 +9,10 @@ function Controller() {
     $.__views.notas = Alloy.createController("notas", {
         id: "notas"
     });
-    $.__views.win1 = Ti.UI.iOS.createNavigationWindow({
-        window: $.__views.notas.getViewEx({
-            recurse: true
-        }),
-        id: "win1"
-    });
-    $.__views.win1 && $.addTopLevelView($.__views.win1);
+    $.__views.notas && $.addTopLevelView($.__views.notas);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    Alloy.Globals.navgroup = $.win1;
-    $.win1.open();
+    $.notas.getView().open();
     _.extend($, exports);
 }
 

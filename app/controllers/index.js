@@ -1,5 +1,15 @@
-function doClick(e) {
-    alert($.label.text);
+
+if (OS_IOS){
+	Alloy.Globals.navgroup = $.win1;
 }
 
-$.index.open();
+if (OS_ANDROID) {
+	$.notas.getView().open();
+} else {
+	$.win1.open();
+}
+
+
+
+
+
