@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0003,"key":"row","style":{height:"50dp",backgroundColor:"#fff",focusable:false,}},{"isId":true,"priority":100101.0004,"key":"row","style":{selectionStyle:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE,}}];
