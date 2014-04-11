@@ -1,4 +1,3 @@
-
 if (OS_IOS){
 	Alloy.Globals.navgroup = $.win1;
 }
@@ -8,8 +7,5 @@ if (OS_ANDROID) {
 } else {
 	$.win1.open();
 }
-
-
-
 
 

@@ -1,0 +1,6 @@
+"SearchBar": {
+	height: "43dp",
+	top: 64, 
+	barColor: "#444", 
+	showCancel: true
+}

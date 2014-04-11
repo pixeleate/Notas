@@ -1,4 +1,23 @@
 function Controller() {
+    function __alloyId7(e) {
+        if (e && e.fromAdapter) return;
+        __alloyId7.opts || {};
+        var models = __alloyId6.models;
+        var len = models.length;
+        var rows = [];
+        for (var i = 0; len > i; i++) {
+            var __alloyId3 = models[i];
+            __alloyId3.__transform = {};
+            var __alloyId5 = Alloy.createController("row", {
+                $model: __alloyId3,
+                __parentSymbol: __parentSymbol
+            });
+            rows.push(__alloyId5.getViewEx({
+                recurse: true
+            }));
+        }
+        $.__views.notesTable.setData(rows);
+    }
     function addNote() {
         var addNoteWin = Alloy.createController("notetpl");
         var win = addNoteWin.getView();
@@ -13,9 +32,9 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.notas = Ti.UI.createWindow({
+        id: "notas",
         title: "Titanium Notes",
-        backgroundColor: "#fff",
-        id: "notas"
+        backgroundColor: "#fff"
     });
     $.__views.notas && $.addTopLevelView($.__views.notas);
     $.__views.addButton = Ti.UI.createButton({
@@ -24,21 +43,46 @@ function Controller() {
     });
     addNote ? $.__views.addButton.addEventListener("click", addNote) : __defers["$.__views.addButton!click!addNote"] = true;
     $.__views.notas.rightNavButton = $.__views.addButton;
-    var __alloyId3 = [];
-    $.__views.__alloyId4 = Alloy.createController("row", {
-        id: "__alloyId4",
-        __parentSymbol: __parentSymbol
+    $.__views.EditButton = Ti.UI.createButton({
+        id: "EditButton",
+        title: "Edit"
     });
-    __alloyId3.push($.__views.__alloyId4.getViewEx({
-        recurse: true
-    }));
-    $.__views.todoTable = Ti.UI.createTableView({
-        data: __alloyId3,
-        id: "todoTable"
+    $.__views.notas.leftNavButton = $.__views.EditButton;
+    $.__views.notesTable = Ti.UI.createTableView({
+        id: "notesTable",
+        filterAttribute: "my_filter"
     });
-    $.__views.notas.add($.__views.todoTable);
-    exports.destroy = function() {};
+    $.__views.notas.add($.__views.notesTable);
+    var __alloyId6 = Alloy.Collections["notesdata"] || notesdata;
+    __alloyId6.on("fetch destroy change add remove reset", __alloyId7);
+    exports.destroy = function() {
+        __alloyId6.off("fetch destroy change add remove reset", __alloyId7);
+    };
     _.extend($, $.__views);
+    var notas = Alloy.Collections.notesdata;
+    notas && notas.fetch();
+    $.notesTable.search = $.searchBar;
+    $.notesTable.filterAttribute = "my_filter";
+    $.notesTable.filterCaseInsensitive = "true";
+    $.notesTable.editable = true;
+    $.notesTable.moveable = true;
+    $.notesTable.search = Alloy.createController("searchbar").getView();
+    var counter = 0;
+    Titanium.UI.createButton({
+        title: "Edit"
+    });
+    $.EditButton.addEventListener("click", function() {
+        if (0 == counter) {
+            $.EditButton.title = "Cancel";
+            $.notesTable.editing = true;
+            counter++;
+        } else {
+            $.EditButton.title = "Edit";
+            $.notesTable.editing = false;
+            counter--;
+        }
+    });
+    $.notas.open();
     __defers["$.__views.addButton!click!addNote"] && $.__views.addButton.addEventListener("click", addNote);
     _.extend($, exports);
 }

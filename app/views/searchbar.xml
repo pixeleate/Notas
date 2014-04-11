@@ -1,0 +1,3 @@
+<Alloy>
+    <SearchBar id="searchBar" hintText="Notes Search" platform="android,ios" />
+</Alloy>

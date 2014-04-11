@@ -1,5 +1,15 @@
 <Alloy>
 	<Window title="Add Note" class="container">
+		<!--Add a rigth button on IOS to save the notes-->
+		<RightNavButton platform='ios'>
+                    <Button title="Done" onClick="saveNote" />
+        </RightNavButton>
+        <!--Add a Menu with a button on Android to save the notes-->
+        <Menu platform="android">
+        	<MenuItem title="Done" onClick="saveNote" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS" />
+        </Menu>
+        
+		<TextArea id="textNote" onFocus="BorrarHint"></TextArea>
 		
 	</Window>
 </Alloy>

@@ -1,9 +1,29 @@
-"#row": {
+"#noteRow": {
 	height: '50dp',
 	backgroundColor: '#fff',
 	focusable: false
 }
 
-"#row[platform=ios]": {
+"#noteRow[platform=ios]": {
     selectionStyle:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+}
+
+"#date": {
+  left: '20dp',
+  top: '7dp',
+  height: Ti.UI.SIZE,
+  color: '#E3E1E2',
+	font: {
+		fontSize: '10dp'
+	}
+	
+}
+
+"#title": {
+  left: '20dp',
+  top: '22dp',
+  height: Ti.UI.SIZE,
+	font: {
+		fontSize: '18dp'
+	}
 }

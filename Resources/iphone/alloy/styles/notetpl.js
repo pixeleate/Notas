@@ -1,1 +1,1 @@
-module.exports = [{"isClass":true,"priority":10000.0002,"key":"container","style":{backgroundColor:"#fff",}}];
+module.exports = [{"isClass":true,"priority":10000.0003,"key":"container","style":{backgroundColor:"#fff",}},{"isId":true,"priority":100000.0004,"key":"textNote","style":{editable:true,value:"Write a Note",hintText:"Nota",top:0,height:500,width:320,font:{fontSize:20,fontFamily:"Arial",},color:"#888",textAlign:"left",borderWidth:1,borderColor:"#bbb",returnKeyType:"RETURNKEY_DEFAULT",suppressReturn:false,}}];
